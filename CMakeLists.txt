@@ -10,6 +10,7 @@ qt_add_executable(VehicleRentalManagementSystem
     vehicle.h vehicle.cpp
     car.h car.cpp
     motorcycle.h motorcycle.cpp
+    vehiclemanager.h vehiclemanager.cpp
 )
 
 target_link_libraries(VehicleRentalManagementSystem

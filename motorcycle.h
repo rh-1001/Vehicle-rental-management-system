@@ -1,10 +1,21 @@
 #ifndef MOTORCYCLE_H
 #define MOTORCYCLE_H
 
-class motorcycle
+#include <QString>
+#include "vehicle.h"
+
+class Motorcycle:public Vehicle
 {
+private:
+    int engineCapacityCC;
+
 public:
-    motorcycle();
+    Motorcycle(QString newID,QString newModel,QString newBrand,double newPricePerDay, int newEngineCapacityCC);
+
+    //Setter and Getter for engine capacity function
+
+    int getEngineCapacityCC();
+    void setEngineCapacityCC(int newValue);
 };
 
 #endif // MOTORCYCLE_H
