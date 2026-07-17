@@ -91,7 +91,3 @@ Development will be completed incrementally, with each milestone focusing on app
 ## Author
 
 **Ivy**
-
-BSc Mathematics and Computer Science Student
-
-Building projects to strengthen C++, Qt, and software engineering skills.
