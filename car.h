@@ -9,7 +9,7 @@ class Car: public Vehicle
         int numberOfDoors;
 
     public:
-        Car(QString newID,QString newModel,QString newBrand,double newPricePerDay, int numberOfDoors);
+        Car(QString newID,QString newModel,QString newBrand,double newPricePerDay, int newNumberOfDoors);
 
     //Setter and getter for the function number of doors
 
