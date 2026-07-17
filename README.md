@@ -88,6 +88,3 @@ Additional classes such as `Customer`, `Rental`, and `RentalManager` will be int
 
 Development will be completed incrementally, with each milestone focusing on applying object-oriented programming principles before integrating the graphical user interface.
 
-## Author
-
-**Ivy**
