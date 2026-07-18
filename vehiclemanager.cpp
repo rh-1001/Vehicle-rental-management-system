@@ -136,3 +136,5 @@ void VehicleManager::searchVehicle(){
         }
     }
 }
+//Implementing rent vehicle functionality
+
