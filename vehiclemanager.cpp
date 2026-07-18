@@ -54,9 +54,46 @@ void VehicleManager::addVehicle(){
 
     }else{
 
-        out << " "
+        out << "Invalid input! ";
     }
-
 
 }
 
+//Implementation of remove vehicle functionality
+void VehicleManager::removeVehicle(){
+
+    QString vehicleType, searchID;
+
+    out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    in >> vehicleType;
+
+    if (vehicleType == "Car"){
+
+        out << "Enter ID of vehicle you want to remove C-:\n";
+        in >> searchID;
+
+        for(int i =0 ;i < Cars.size(); i++){
+            if( searchID ==Cars[i].getId()){
+                Cars.remove(i);
+
+                out << "Vehicle removed successfully!";
+            }else if (vehicleType == "Motorcycle"){
+
+                    out << "Enter ID of vehicle you want to remove C-:\n";
+                    in >> searchID;
+
+                    for(int i =0 ;i < Motorcycles.size(); i++){
+                        if( searchID ==Motorcycles[i].getId()){
+                            Cars.remove(i);
+
+                            out << "Vehicle removed successfully!";
+                        }else{
+                            out << "No match was found!";
+                        }
+                    }
+                }
+            }
+    }else{
+        out << "Invalid input! \n";
+    }
+    }
