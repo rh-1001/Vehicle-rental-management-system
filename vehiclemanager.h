@@ -5,6 +5,7 @@
 #include <QVector>
 #include "vehicle.h"
 
+
 class VehicleManager
 {
     private:

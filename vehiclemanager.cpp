@@ -161,8 +161,86 @@ void VehicleManager::rentVehicle(){
                 //Adding the rented to the rented vehicle vector
                 RentedVehicles.append(Cars[i]);
 
+                //Removing rented from available cars
+                Cars.remove(i);
+
+            }
+        }
+    }
+    if (vehicleType == "Motorcycle"){
+
+        out << "Enter Vehicle ID:\n";
+        in >> searchID;
+
+        for(int i =0 ;i < Motorcycles.size(); i++){
+            if(searchID == Motorcycles[i].getId()){
+
+                // Changing rental status of car
+                Motorcycles[i].setIsRented(true);
+                if(Motorcycles[i].getRented()){
+                    out <<" Vehicle has been rented!\n";
+                }
+
+                //Adding the rented to the rented vehicle vector
+                RentedVehicles.append(Motorcycles[i]);
+
+                //Removing vehicles
+                Motorcycles.remove(i);
             }
         }
     }
 }
+//Implementaion of return vehicle functionality
+void VehicleManager::returnVehicle(){
 
+    QString vehicleType, searchID;
+
+    out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    in >> vehicleType;
+
+    if (vehicleType == "Car"){
+
+        out << "Enter Vehicle ID:\n";
+        in >> searchID;
+
+        for(int i =0 ;i < Cars.size(); i++){
+            if(searchID == Cars[i].getId()){
+
+                // Changing rental status of car
+                Cars[i].setIsRented(false);
+                if(Cars[i].getRented()){
+                    out <<" Vehicle has been rented!\n";
+                }
+
+                //Adding the rented to the cars vehicle vector
+                Cars.append(Cars[i]);
+
+                //Removing rented from available cars
+                RentedVehicles.remove(i);
+
+            }
+        }
+    }
+    if (vehicleType == "Motorcycle"){
+
+        out << "Enter Vehicle ID:\n";
+        in >> searchID;
+
+        for(int i =0 ;i < Motorcycles.size(); i++){
+            if(searchID == Motorcycles[i].getId()){
+
+                // Changing rental status of car
+                Motorcycles[i].setIsRented(false);
+                if(Motorcycles[i].getRented()){
+                    out <<" Vehicle has been returned!\n";
+                }
+
+                //Adding the rented to the rented vehicle vector
+                Motorcycles.append(Motorcycles[i]);
+
+                //Removing vehicles
+                RentedVehicles.remove(i);
+            }
+        }
+    }
+}
