@@ -9,7 +9,8 @@ class VehicleManager
 {
     private:
 
-    QVector<Vehicle>vehicles;
+    QVector<Vehicle>Cars;
+    QVector<Vehicle>Motorcycles;
 
     public:
 
