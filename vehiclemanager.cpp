@@ -137,4 +137,32 @@ void VehicleManager::searchVehicle(){
     }
 }
 //Implementing rent vehicle functionality
+void VehicleManager::rentVehicle(){
+
+    QString vehicleType, searchID;
+
+    out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    in >> vehicleType;
+
+    if (vehicleType == "Car"){
+
+        out << "Enter Vehicle ID:\n";
+        in >> searchID;
+
+        for(int i =0 ;i < Cars.size(); i++){
+            if(searchID == Cars[i].getId()){
+
+                // Changing rental status of car
+                Cars[i].setIsRented(true);
+                if(Cars[i].getRented()){
+                    out <<" Vehicle has been rented!\n";
+                }
+
+                //Adding the rented to the rented vehicle vector
+                RentedVehicles.append(Cars[i]);
+
+            }
+        }
+    }
+}
 
