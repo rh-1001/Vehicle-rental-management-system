@@ -22,7 +22,7 @@ void VehicleManager::addVehicle(){
 
     if (vehicleType == "Car"){
 
-            out << "Enter Vehicle:\n";
+            out << "Enter Vehicle ID:\n";
             in >> vehicleID;
 
             out << "Enter Vehicle Model C-:\n";
