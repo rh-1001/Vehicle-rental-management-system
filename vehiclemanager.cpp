@@ -87,17 +87,22 @@ void VehicleManager::removeVehicle(){
             out << "Enter ID of vehicle you want to remove C-:\n";
             in >> searchID;
 
-            for(int i =0 ;i < Motorcycles.size(); i++){
-                if( searchID == Motorcycles[i].getId()){
+            for(int i = 0; i < Motorcycles.size(); i++){
+                if(searchID == Motorcycles[i].getId()){
+
                     Motorcycles.remove(i);
 
                     out << "Vehicle removed successfully!";
                     return;
                 }
             }
+
+            out << "No match was found!";
         }
-        out << "Invalid Input!";
-    }
+        else{
+
+            out << "Invalid vehicle type!";
+        }}
 
 //Implementation of search vehicle functionality
     void VehicleManager::searchVehicle(){
