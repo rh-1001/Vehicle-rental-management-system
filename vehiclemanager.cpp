@@ -179,6 +179,7 @@ void VehicleManager::rentVehicle(){
 
             }
         }
+        out << " Vehicle not found!\n";
     }
     else if (vehicleType == "Motorcycle"){
 
@@ -202,8 +203,10 @@ void VehicleManager::rentVehicle(){
                 return;
             }
         }
+            out << " Vehicle not found\n";
     }
-    out << "Invalid Input!";
+    else{out << "Invalid Input!";
+    }
 }
 //Implementaion of return vehicle functionality
 void VehicleManager::returnVehicle(){
