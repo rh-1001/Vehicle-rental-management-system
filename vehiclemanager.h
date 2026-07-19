@@ -12,7 +12,8 @@ class VehicleManager
 
     QVector<Vehicle>Cars;
     QVector<Vehicle>Motorcycles;
-    QVector<Vehicle>RentedVehicles;
+    QVector<Vehicle>RentedCars;
+    QVector<Vehicle>RentedMotorcycles;
 
     public:
 

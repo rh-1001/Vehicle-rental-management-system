@@ -14,7 +14,7 @@ VehicleManager::VehicleManager() {}
 void VehicleManager::addVehicle(){
 
     QString vehicleType, vehicleID, vehicleModel, vehicleBrand;
-    int vehiclePrice;
+    double vehiclePrice;
 
     out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
     in >> vehicleType;
@@ -62,41 +62,44 @@ void VehicleManager::addVehicle(){
 //Implementation of remove vehicle functionality
 void VehicleManager::removeVehicle(){
 
-    QString vehicleType, searchID;
+        QString vehicleType, searchID;
 
-    out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
-    in >> vehicleType;
+        out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+        in >> vehicleType;
 
-    if (vehicleType == "Car"){
+        if (vehicleType == "Car"){
 
-        out << "Enter ID of vehicle you want to remove C-:\n";
-        in >> searchID;
+            out << "Enter ID of vehicle you want to remove C-:\n";
+            in >> searchID;
 
-        for(int i =0 ;i < Cars.size(); i++){
-            if( searchID ==Cars[i].getId()){
-                Cars.remove(i);
+            for(int i =0 ;i < Cars.size(); i++){
+                if( searchID == Cars[i].getId()){
+                    Cars.remove(i);
 
-                out << "Vehicle removed successfully!";
-            }else if (vehicleType == "Motorcycle"){
-
-                    out << "Enter ID of vehicle you want to remove C-:\n";
-                    in >> searchID;
-
-                    for(int i =0 ;i < Motorcycles.size(); i++){
-                        if( searchID ==Motorcycles[i].getId()){
-                            Cars.remove(i);
-
-                            out << "Vehicle removed successfully!";
-                        }else{
-                            out << "No match was found!";
-                        }
-                    }
+                    out << "Vehicle removed successfully!";
+                }
+                else{
+                    out << "No match was found!";
                 }
             }
-    }else{
-        out << "Invalid input! \n";
+        }
+        else if (vehicleType == "Motorcycle"){
+
+            out << "Enter ID of vehicle you want to remove C-:\n";
+            in >> searchID;
+
+            for(int i =0 ;i < Motorcycles.size(); i++){
+                if( searchID == Motorcycles[i].getId()){
+                    Motorcycles.remove(i);
+
+                    out << "Vehicle removed successfully!";
+                }
+                else{
+                    out << "No match was found!";
+                }
+            }
+        }
     }
-}
 
 //Implementation of search vehicle functionality
 void VehicleManager::searchVehicle(){
@@ -159,7 +162,7 @@ void VehicleManager::rentVehicle(){
                 }
 
                 //Adding the rented to the rented vehicle vector
-                RentedVehicles.append(Cars[i]);
+                RentedCars.append(Cars[i]);
 
                 //Removing rented from available cars
                 Cars.remove(i);
@@ -182,7 +185,7 @@ void VehicleManager::rentVehicle(){
                 }
 
                 //Adding the rented to the rented vehicle vector
-                RentedVehicles.append(Motorcycles[i]);
+                RentedMotorcycles.append(Motorcycles[i]);
 
                 //Removing vehicles
                 Motorcycles.remove(i);
@@ -203,20 +206,18 @@ void VehicleManager::returnVehicle(){
         out << "Enter Vehicle ID:\n";
         in >> searchID;
 
-        for(int i =0 ;i < Cars.size(); i++){
-            if(searchID == Cars[i].getId()){
+        for(int i =0 ;i < RentedCars.size(); i++){
+            if(searchID == RentedCars[i].getId()){
 
                 // Changing rental status of car
-                Cars[i].setIsRented(false);
-                if(Cars[i].getRented()){
-                    out <<" Vehicle has been rented!\n";
-                }
+                RentedCars[i].setIsRented(false);
+                    out <<" Vehicle has been returned!\n";
 
                 //Adding the rented to the cars vehicle vector
-                Cars.append(Cars[i]);
+                Cars.append(RentedCars[i]);
 
                 //Removing rented from available cars
-                RentedVehicles.remove(i);
+                RentedCars.remove(i);
 
             }
         }
@@ -226,20 +227,19 @@ void VehicleManager::returnVehicle(){
         out << "Enter Vehicle ID:\n";
         in >> searchID;
 
-        for(int i =0 ;i < Motorcycles.size(); i++){
-            if(searchID == Motorcycles[i].getId()){
+        for(int i =0 ;i < RentedMotorcycles.size(); i++){
+            if(searchID == RentedMotorcycles[i].getId()){
 
                 // Changing rental status of car
-                Motorcycles[i].setIsRented(false);
-                if(Motorcycles[i].getRented()){
-                    out <<" Vehicle has been returned!\n";
-                }
+                RentedMotorcycles[i].setIsRented(false);
+                out <<" Vehicle has been returned!\n";
+
 
                 //Adding the rented to the rented vehicle vector
-                Motorcycles.append(Motorcycles[i]);
+                Motorcycles.append(RentedMotorcycles[i]);
 
                 //Removing vehicles
-                RentedVehicles.remove(i);
+                RentedMotorcycles.remove(i);
             }
         }
     }
