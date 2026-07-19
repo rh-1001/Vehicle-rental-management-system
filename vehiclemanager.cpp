@@ -77,11 +77,10 @@ void VehicleManager::removeVehicle(){
                     Cars.remove(i);
 
                     out << "Vehicle removed successfully!";
-                }
-                else{
-                    out << "No match was found!";
+                    return;
                 }
             }
+            out << "No match was found!";
         }
         else if (vehicleType == "Motorcycle"){
 
@@ -93,52 +92,57 @@ void VehicleManager::removeVehicle(){
                     Motorcycles.remove(i);
 
                     out << "Vehicle removed successfully!";
-                }
-                else{
-                    out << "No match was found!";
+                    return;
                 }
             }
         }
+        out << "Invalid Input!";
     }
 
 //Implementation of search vehicle functionality
-void VehicleManager::searchVehicle(){
+    void VehicleManager::searchVehicle(){
 
-    QString vehicleType, searchID;
+        QString vehicleType, searchID;
 
-    out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
-    in >> vehicleType;
+        out << "Enter Vehicle type: ('Car' or 'Motorcycle'): \n";
+        in >> vehicleType;
 
-    if (vehicleType == "Car"){
+        if (vehicleType == "Car"){
 
-        out << "Enter Vehicle ID:\n";
-        in >> searchID;
+            out << "Enter Vehicle ID:\n";
+            in >> searchID;
 
-        for(int i =0 ;i < Cars.size(); i++){
-            if(searchID == Cars[i].getId()){
-                out << "Vehicle Found!\n";
+            for(int i = 0; i < Cars.size(); i++){
+                if(searchID == Cars[i].getId()){
 
-            }else{
-                out << "Vehicle Not Found!\n";
+                    out << "Vehicle Found!\n";
+                    return;
+                }
             }
+
+            out << "Vehicle Not Found!\n";
         }
+        else if (vehicleType == "Motorcycle"){
 
-    }
-    if (vehicleType == "Motorcycle"){
+            out << "Enter Vehicle ID:\n";
+            in >> searchID;
 
-        out << "Enter Vehicle ID:\n";
-        in >> searchID;
+            for(int i = 0; i < Motorcycles.size(); i++){
+                if(searchID == Motorcycles[i].getId()){
 
-        for(int i =0 ;i < Motorcycles.size(); i++){
-            if(searchID == Motorcycles[i].getId()){
-
-                out << "Vehicle Found!\n";
-            }else{
-                out << "Vehicle Not Found!\n";
+                    out << "Vehicle Found!\n";
+                    return;
+                }
             }
+
+            out << "Vehicle Not Found!\n";
+        }
+        else{
+
+            out << "Invalid vehicle type!\n";
         }
     }
-}
+
 //Implementing rent vehicle functionality
 void VehicleManager::rentVehicle(){
 
@@ -166,11 +170,12 @@ void VehicleManager::rentVehicle(){
 
                 //Removing rented from available cars
                 Cars.remove(i);
+                return;
 
             }
         }
     }
-    if (vehicleType == "Motorcycle"){
+    else if (vehicleType == "Motorcycle"){
 
         out << "Enter Vehicle ID:\n";
         in >> searchID;
@@ -189,9 +194,11 @@ void VehicleManager::rentVehicle(){
 
                 //Removing vehicles
                 Motorcycles.remove(i);
+                return;
             }
         }
     }
+    out << "Invalid Input!";
 }
 //Implementaion of return vehicle functionality
 void VehicleManager::returnVehicle(){
@@ -218,11 +225,12 @@ void VehicleManager::returnVehicle(){
 
                 //Removing rented from available cars
                 RentedCars.remove(i);
+                return;
 
             }
         }
     }
-    if (vehicleType == "Motorcycle"){
+    else if (vehicleType == "Motorcycle"){
 
         out << "Enter Vehicle ID:\n";
         in >> searchID;
@@ -240,6 +248,7 @@ void VehicleManager::returnVehicle(){
 
                 //Removing vehicles
                 RentedMotorcycles.remove(i);
+                return;
             }
         }
     }
