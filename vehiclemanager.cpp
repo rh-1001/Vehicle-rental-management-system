@@ -237,6 +237,7 @@ void VehicleManager::returnVehicle(){
 
             }
         }
+        out << "Vehicle not found!\n";
     }
     else if (vehicleType == "Motorcycle"){
 
@@ -259,5 +260,6 @@ void VehicleManager::returnVehicle(){
                 return;
             }
         }
+        out << "Vehicle not found!\n";
     }
 }
