@@ -203,9 +203,9 @@ void VehicleManager::rentVehicle(){
                 return;
             }
         }
-            out << " Vehicle not found\n";
+            out << " Vehicle not found!\n";
     }
-    else{out << "Invalid Input!";
+    else{out << "Invalid Input!\n";
     }
 }
 //Implementaion of return vehicle functionality
@@ -261,5 +261,7 @@ void VehicleManager::returnVehicle(){
             }
         }
         out << "Vehicle not found!\n";
+    }else{
+        out << "Invalid Input!\n";
     }
 }
