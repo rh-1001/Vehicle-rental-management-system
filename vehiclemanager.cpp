@@ -265,3 +265,44 @@ void VehicleManager::returnVehicle(){
         out << "Invalid Input!\n";
     }
 }
+//Implementation of displayVehicle functionality
+void VehicleManager::displayVehicle(){
+
+    QString vehicleType, searchID;
+
+    out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    in >> vehicleType;
+
+    if (vehicleType == "Car"){
+
+        out << "Enter Vehicle ID:\n";
+        in >> searchID;
+
+        for(int i =0 ;i < Cars.size(); i++){
+            if(searchID == Cars[i].getId()){
+
+                out << "Vehicle ID: " << Cars[i].getId() << "\n";
+                out << "Model: " << Cars[i].getModel() << "\n";
+                out << "Brand: " << Cars[i].getBrand() << "\n";
+                out << "Price Per Day: R" << Cars[i].getPricePerDay() << "\n";
+                out << "Rented: " << Cars[i].getRented() << "\n";
+                return;
+                }
+
+            }
+    } else if (vehicleType == "Motorcycle"){
+
+        out << "Enter Vehicle ID:\n";
+        in >> searchID;
+
+        for(int i =0 ;i < Motorcycles.size(); i++){
+            if(searchID == Motorcycles[i].getId()){
+
+                out <<" Vehicle has been found!\n";
+                return;
+            }
+}
+        }
+    out << "Invalid OutPut!";
+    }
+
