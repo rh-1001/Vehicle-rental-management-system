@@ -285,11 +285,16 @@ void VehicleManager::displayVehicle(){
                 out << "Model: " << Cars[i].getModel() << "\n";
                 out << "Brand: " << Cars[i].getBrand() << "\n";
                 out << "Price Per Day: R" << Cars[i].getPricePerDay() << "\n";
-                out << "Rented: " << Cars[i].getRented() << "\n";
-                return;
+                if (Cars[i].getRented() == true) {
+                    out << "Yes\n";
+                }
+                else if (Cars[i].getRented() == false) {
+                    out << "No\n";
+                }
                 }
 
-            }
+            }  out << "Vehicle not found!/n";
+
     } else if (vehicleType == "Motorcycle"){
 
         out << "Enter Vehicle ID:\n";
@@ -298,11 +303,22 @@ void VehicleManager::displayVehicle(){
         for(int i =0 ;i < Motorcycles.size(); i++){
             if(searchID == Motorcycles[i].getId()){
 
-                out <<" Vehicle has been found!\n";
+                out << "Vehicle ID: " << Motorcycles[i].getId() << "\n";
+                out << "Model: " << Motorcycles[i].getModel() << "\n";
+                out << "Brand: " << Motorcycles[i].getBrand() << "\n";
+                out << "Price Per Day: R" << Motorcycles[i].getPricePerDay() << "\n";
+                if (Motorcycles[i].getRented() == true) {
+                    out << "Yes\n";
+                }
+                else if (Motorcycles[i].getRented() == false) {
+                    out << "No\n";
+                }
                 return;
             }
 }
+        out << "Vehicle not found!/n";
         }
-    out << "Invalid OutPut!";
+    else{
+        out << "Invalid output!";}
     }
 
