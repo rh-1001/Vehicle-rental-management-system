@@ -291,9 +291,9 @@ void VehicleManager::displayVehicle(){
                 else if (Cars[i].getRented() == false) {
                     out << "No\n";
                 }
+                return;
                 }
-
-            }  out << "Vehicle not found!/n";
+            }  out << "Vehicle not found!\n";
 
     } else if (vehicleType == "Motorcycle"){
 
