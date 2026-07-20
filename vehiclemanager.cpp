@@ -322,3 +322,37 @@ void VehicleManager::displayVehicle(){
         out << "Invalid output!";}
     }
 
+
+//Implementation of display summary functionality
+    void VehicleManager::displaySummary(){
+
+        out << "\n========== Vehicle Summary ==========\n";
+
+        out << "Available Cars: "
+            << Cars.size() << "\n";
+
+        out << "Available Motorcycles: "
+            << Motorcycles.size() << "\n";
+
+        out << "Rented Cars: "
+            << RentedCars.size() << "\n";
+
+        out << "Rented Motorcycles: "
+            << RentedMotorcycles.size() << "\n";
+
+        out << "-------------------------------------\n";
+
+        out << "Total Available Vehicles: "
+            << Cars.size() + Motorcycles.size() << "\n";
+
+        out << "Total Rented Vehicles: "
+            << RentedCars.size() + RentedMotorcycles.size() << "\n";
+
+        out << "Total Vehicles: "
+            << Cars.size() + Motorcycles.size()
+                   + RentedCars.size() + RentedMotorcycles.size()
+            << "\n";
+
+        out << "=====================================\n";
+    }
+
