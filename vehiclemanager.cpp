@@ -1,4 +1,5 @@
 #include <QTextStream>
+#include <QFile>
 #include "vehiclemanager.h"
 #include "vehicle.h"
 
@@ -355,4 +356,12 @@ void VehicleManager::displayVehicle(){
 
         out << "=====================================\n";
     }
+
+    //Implementing save to file functionality
+    void VehicleManager::saveToFile(){
+
+        QFile file("storage.txt");
+
+        QTextStream fileOut(&file);
+    };
 
