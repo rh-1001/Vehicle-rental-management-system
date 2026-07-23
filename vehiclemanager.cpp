@@ -405,5 +405,8 @@ void VehicleManager::displayVehicle(){
             fileOut << RentedMotorcycles[i].getPricePerDay() << "\n";
             fileOut << RentedMotorcycles[i].getRented() << "\n";
         }
+        file.close();
+
+        out << "Data saved successfully!\n";
     };
 
