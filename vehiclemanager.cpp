@@ -371,12 +371,30 @@ void VehicleManager::displayVehicle(){
 
         for(int i = 0; i < Motorcycles.size(); i++){
 
-            fileOut << "Car\n";
+            fileOut << " Avaialble Motorcycles\n";
             fileOut << Motorcycles[i].getId() << "\n";
             fileOut << Motorcycles[i].getModel() << "\n";
             fileOut << Motorcycles[i].getBrand() << "\n";
             fileOut << Motorcycles[i].getPricePerDay() << "\n";
             fileOut << Motorcycles[i].getRented() << "\n";
+        }
+        for(int i = 0; i < Cars.size(); i++){
+
+            fileOut << "Avaulable Cars\n";
+            fileOut << Cars[i].getId() << "\n";
+            fileOut << Cars[i].getModel() << "\n";
+            fileOut << Cars[i].getBrand() << "\n";
+            fileOut << Cars[i].getPricePerDay() << "\n";
+            fileOut << Cars[i].getRented() << "\n";
+        }
+        for(int i = 0; i < RentedCars.size(); i++){
+
+            fileOut << "Rented Cars\n";
+            fileOut << RentedCars[i].getId() << "\n";
+            fileOut << RentedCars[i].getModel() << "\n";
+            fileOut << RentedCars[i].getBrand() << "\n";
+            fileOut << RentedCars[i].getPricePerDay() << "\n";
+            fileOut << RentedCars[i].getRented() << "\n";
         }
     };
 
