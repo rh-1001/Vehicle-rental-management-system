@@ -396,5 +396,14 @@ void VehicleManager::displayVehicle(){
             fileOut << RentedCars[i].getPricePerDay() << "\n";
             fileOut << RentedCars[i].getRented() << "\n";
         }
+        for(int i = 0; i < RentedMotorcycles.size(); i++){
+
+            fileOut << "Rented Motorcycles\n";
+            fileOut << RentedMotorcycles[i].getId() << "\n";
+            fileOut << RentedMotorcycles[i].getModel() << "\n";
+            fileOut << RentedMotorcycles[i].getBrand() << "\n";
+            fileOut << RentedMotorcycles[i].getPricePerDay() << "\n";
+            fileOut << RentedMotorcycles[i].getRented() << "\n";
+        }
     };
 
