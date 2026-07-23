@@ -363,5 +363,19 @@ void VehicleManager::displayVehicle(){
         QFile file("storage.txt");
 
         QTextStream fileOut(&file);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            out << "Could not open file!\n";
+            return;
+        }
+        for(int i = 0; i < Cars.size(); i++){
+
+            fileOut << "Car\n";
+            fileOut << Cars[i].getId() << "\n";
+            fileOut << Cars[i].getModel() << "\n";
+            fileOut << Cars[i].getBrand() << "\n";
+            fileOut << Cars[i].getPricePerDay() << "\n";
+            fileOut << Cars[i].getRented() << "\n";
+        }
     };
 
