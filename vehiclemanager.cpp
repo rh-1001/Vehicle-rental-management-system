@@ -368,14 +368,15 @@ void VehicleManager::displayVehicle(){
             out << "Could not open file!\n";
             return;
         }
-        for(int i = 0; i < Cars.size(); i++){
+
+        for(int i = 0; i < Motorcycles.size(); i++){
 
             fileOut << "Car\n";
-            fileOut << Cars[i].getId() << "\n";
-            fileOut << Cars[i].getModel() << "\n";
-            fileOut << Cars[i].getBrand() << "\n";
-            fileOut << Cars[i].getPricePerDay() << "\n";
-            fileOut << Cars[i].getRented() << "\n";
+            fileOut << Motorcycles[i].getId() << "\n";
+            fileOut << Motorcycles[i].getModel() << "\n";
+            fileOut << Motorcycles[i].getBrand() << "\n";
+            fileOut << Motorcycles[i].getPricePerDay() << "\n";
+            fileOut << Motorcycles[i].getRented() << "\n";
         }
     };
 
