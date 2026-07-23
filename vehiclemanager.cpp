@@ -362,7 +362,7 @@ void VehicleManager::displayVehicle(){
 
         QFile file("storage.txt");
 
-        QTextStream fileOut(&file);
+        QTextStream saveFile(&file);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         {
             out << "Could not open file!\n";
@@ -371,42 +371,55 @@ void VehicleManager::displayVehicle(){
 
         for(int i = 0; i < Motorcycles.size(); i++){
 
-            fileOut << " Avaialble Motorcycles\n";
-            fileOut << Motorcycles[i].getId() << "\n";
-            fileOut << Motorcycles[i].getModel() << "\n";
-            fileOut << Motorcycles[i].getBrand() << "\n";
-            fileOut << Motorcycles[i].getPricePerDay() << "\n";
-            fileOut << Motorcycles[i].getRented() << "\n";
+            saveFile << " Avaialble Motorcycles\n";
+            saveFile << Motorcycles[i].getId() << "\n";
+            saveFile << Motorcycles[i].getModel() << "\n";
+            saveFile << Motorcycles[i].getBrand() << "\n";
+            saveFile << Motorcycles[i].getPricePerDay() << "\n";
+            saveFile << Motorcycles[i].getRented() << "\n";
         }
         for(int i = 0; i < Cars.size(); i++){
 
-            fileOut << "Avaulable Cars\n";
-            fileOut << Cars[i].getId() << "\n";
-            fileOut << Cars[i].getModel() << "\n";
-            fileOut << Cars[i].getBrand() << "\n";
-            fileOut << Cars[i].getPricePerDay() << "\n";
-            fileOut << Cars[i].getRented() << "\n";
+            saveFile << "Avaulable Cars\n";
+            saveFile << Cars[i].getId() << "\n";
+            saveFile << Cars[i].getModel() << "\n";
+            saveFile << Cars[i].getBrand() << "\n";
+            saveFile << Cars[i].getPricePerDay() << "\n";
+            saveFile << Cars[i].getRented() << "\n";
         }
         for(int i = 0; i < RentedCars.size(); i++){
 
-            fileOut << "Rented Cars\n";
-            fileOut << RentedCars[i].getId() << "\n";
-            fileOut << RentedCars[i].getModel() << "\n";
-            fileOut << RentedCars[i].getBrand() << "\n";
-            fileOut << RentedCars[i].getPricePerDay() << "\n";
-            fileOut << RentedCars[i].getRented() << "\n";
+            saveFile << "Rented Cars\n";
+            saveFile << RentedCars[i].getId() << "\n";
+            saveFile << RentedCars[i].getModel() << "\n";
+            saveFile << RentedCars[i].getBrand() << "\n";
+            saveFile << RentedCars[i].getPricePerDay() << "\n";
+            saveFile << RentedCars[i].getRented() << "\n";
         }
         for(int i = 0; i < RentedMotorcycles.size(); i++){
 
-            fileOut << "Rented Motorcycles\n";
-            fileOut << RentedMotorcycles[i].getId() << "\n";
-            fileOut << RentedMotorcycles[i].getModel() << "\n";
-            fileOut << RentedMotorcycles[i].getBrand() << "\n";
-            fileOut << RentedMotorcycles[i].getPricePerDay() << "\n";
-            fileOut << RentedMotorcycles[i].getRented() << "\n";
+            saveFile << "Rented Motorcycles\n";
+            saveFile << RentedMotorcycles[i].getId() << "\n";
+            saveFile << RentedMotorcycles[i].getModel() << "\n";
+            saveFile << RentedMotorcycles[i].getBrand() << "\n";
+            saveFile << RentedMotorcycles[i].getPricePerDay() << "\n";
+            saveFile << RentedMotorcycles[i].getRented() << "\n";
         }
         file.close();
 
         out << "Data saved successfully!\n";
     };
 
+    //Implementing load file functionality
+    void VehicleManager::loadFromFile()
+    {
+        QFile file("storage.txt");
+
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            out << "Could not open file!\n";
+            return;
+        }
+
+        QTextStream loadFile(&file);
+
+    }
