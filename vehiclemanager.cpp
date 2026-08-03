@@ -390,7 +390,7 @@ void VehicleManager::displayVehicle(){
         file.close();
 
         out << "Data saved successfully!\n";
-    };
+    }
 
     //Implementing load file functionality
     void VehicleManager::loadFromFile()
@@ -410,6 +410,14 @@ void VehicleManager::displayVehicle(){
         QString vehicleModel;
         QString vehicleBrand;
         double vehiclePrice;
+        bool isRented;
+
+        //Functionality that clears vectors before loading
+
+        Cars.clear();
+        Motorcycles.clear();
+        RentedCars.clear();
+        RentedMotorcycles.clear();
 
         while(!loadFromFile.atEnd()){
 
@@ -418,33 +426,43 @@ void VehicleManager::displayVehicle(){
             loadFromFile >> vehicleModel;
             loadFromFile >> vehicleBrand;
             loadFromFile >> vehiclePrice;
+            loadFromFile >> isRented;
 
             if(vehicleType == "Car"){
-                if (isRented == true)
+
+                Vehicle vehicle(vehicleID,
+                                vehicleModel,
+                                vehicleBrand,
+                                vehiclePrice);
+
+                vehicle.setIsRented(isRented);
+                if (isRented == 1)
+
                 {
-                    RentedCars.append(Vehicle(vehicleID,
-                                    vehicleModel,
-                                    vehicleBrand,
-                                    vehiclePrice)));
+                    RentedCars.append(vehicle);
                 }
                 else
                 {
-                    Cars.append(Vehicle(vehicleID,
-                                    vehicleModel,
-                                    vehicleBrand,
-                                    vehiclePrice)));
+                    Cars.append(vehicle);
                 }
-                Cars.append(Vehicle(vehicleID,
-                                    vehicleModel,
-                                    vehicleBrand,
-                                    vehiclePrice));
             }
             else if(vehicleType == "Motorcycle"){
 
-                Motorcycles.append(Vehicle(vehicleID,
-                                           vehicleModel,
-                                           vehicleBrand,
-                                           vehiclePrice));
+                Vehicle vehicle(vehicleID,
+                                vehicleModel,
+                                vehicleBrand,
+                                vehiclePrice);
+
+                vehicle.setIsRented(isRented);
+                if (isRented == 1)
+                {
+                    RentedMotorcycles.append(vehicle);
+
+                }
+                else
+                {
+                    Motorcycles.append(vehicle);
+                }
             }
         }
 
