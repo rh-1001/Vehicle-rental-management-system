@@ -15,6 +15,17 @@ int main(int argc, char *argv[])
 
     int choice;
 
+    out << "1. Add Vehicle\n";
+    out << "2. Remove Vehicle\n";
+    out << "3. Search Vehicle\n";
+    out << "4. Rent Vehicle\n";
+    out << "5. Return Vehicle\n";
+    out << "6. Display Vehicle\n";
+    out << "7. Display Summary\n";
+    out << "8. Save to File\n";
+    out << "9. Load from File\n";
+    out << "0. Exit\n";
+
     do
     {
         // Menu

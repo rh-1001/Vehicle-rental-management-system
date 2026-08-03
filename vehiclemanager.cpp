@@ -412,7 +412,7 @@ void VehicleManager::displayVehicle(){
         QString vehicleModel;
         QString vehicleBrand;
         double vehiclePrice;
-        bool isRented;
+        int isRented;
 
         //Functionality that clears vectors before loading
 
