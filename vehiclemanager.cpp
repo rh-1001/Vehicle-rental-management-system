@@ -420,6 +420,42 @@ void VehicleManager::displayVehicle(){
             return;
         }
 
-        QTextStream loadFile(&file);
+        QTextStream loadFromFile(&file);
+       ;
+
+        QString vehicleType;
+        QString vehicleID;
+        QString vehicleModel;
+        QString vehicleBrand;
+        double vehiclePrice;
+
+        while(!loadFromFile.atEnd()){
+
+            loadFromFile >> vehicleType;
+            loadFromFile >> vehicleID;
+            loadFromFile >> vehicleModel;
+            loadFromFile >> vehicleBrand;
+            loadFromFile >> vehiclePrice;
+
+            if(vehicleType == "Car"){
+
+                Cars.append(Vehicle(vehicleID,
+                                    vehicleModel,
+                                    vehicleBrand,
+                                    vehiclePrice));
+            }
+            else if(vehicleType == "Motorcycle"){
+
+                Motorcycles.append(Vehicle(vehicleID,
+                                           vehicleModel,
+                                           vehicleBrand,
+                                           vehiclePrice));
+            }
+        }
+
+        loadFromFile.close();
+
+        out << "Vehicles loaded successfully!\n";
+    }
 
     }
