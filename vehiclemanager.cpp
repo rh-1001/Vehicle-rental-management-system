@@ -371,7 +371,7 @@ void VehicleManager::displayVehicle(){
 
         for(int i = 0; i < Motorcycles.size(); i++){
 
-            saveFile << " Avaialble Motorcycles\n";
+            saveFile << "Motorcycles\n";
             saveFile << Motorcycles[i].getId() << "\n";
             saveFile << Motorcycles[i].getModel() << "\n";
             saveFile << Motorcycles[i].getBrand() << "\n";
@@ -380,30 +380,12 @@ void VehicleManager::displayVehicle(){
         }
         for(int i = 0; i < Cars.size(); i++){
 
-            saveFile << "Avaulable Cars\n";
+            saveFile << "Cars\n";
             saveFile << Cars[i].getId() << "\n";
             saveFile << Cars[i].getModel() << "\n";
             saveFile << Cars[i].getBrand() << "\n";
             saveFile << Cars[i].getPricePerDay() << "\n";
             saveFile << Cars[i].getRented() << "\n";
-        }
-        for(int i = 0; i < RentedCars.size(); i++){
-
-            saveFile << "Rented Cars\n";
-            saveFile << RentedCars[i].getId() << "\n";
-            saveFile << RentedCars[i].getModel() << "\n";
-            saveFile << RentedCars[i].getBrand() << "\n";
-            saveFile << RentedCars[i].getPricePerDay() << "\n";
-            saveFile << RentedCars[i].getRented() << "\n";
-        }
-        for(int i = 0; i < RentedMotorcycles.size(); i++){
-
-            saveFile << "Rented Motorcycles\n";
-            saveFile << RentedMotorcycles[i].getId() << "\n";
-            saveFile << RentedMotorcycles[i].getModel() << "\n";
-            saveFile << RentedMotorcycles[i].getBrand() << "\n";
-            saveFile << RentedMotorcycles[i].getPricePerDay() << "\n";
-            saveFile << RentedMotorcycles[i].getRented() << "\n";
         }
         file.close();
 
@@ -438,7 +420,20 @@ void VehicleManager::displayVehicle(){
             loadFromFile >> vehiclePrice;
 
             if(vehicleType == "Car"){
-
+                if (isRented == true)
+                {
+                    RentedCars.append(Vehicle(vehicleID,
+                                    vehicleModel,
+                                    vehicleBrand,
+                                    vehiclePrice)));
+                }
+                else
+                {
+                    Cars.append(Vehicle(vehicleID,
+                                    vehicleModel,
+                                    vehicleBrand,
+                                    vehiclePrice)));
+                }
                 Cars.append(Vehicle(vehicleID,
                                     vehicleModel,
                                     vehicleBrand,
@@ -453,9 +448,8 @@ void VehicleManager::displayVehicle(){
             }
         }
 
-        loadFromFile.close();
+        file.close();
 
         out << "Vehicles loaded successfully!\n";
     }
 
-    }
