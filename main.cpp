@@ -69,15 +69,15 @@ int main(int argc, char *argv[])
             manager.loadFromFile();
             break;
 
-        case 0:
-            out << "Goodbye!\n";
+        case 10:
+            out << "Exit!\n";
             break;
 
         default:
             out << "Invalid choice!\n";
             break;
 
-        } while(choice != 0);
+        } while(choice != 10);
 
         return 0;
     }
