@@ -3,7 +3,9 @@
 #include "vehiclemanager.h"
 #include "vehicle.h"
 
-using namespace std;
+
+
+//Input and output streams
 
 QTextStream in(stdin);
 QTextStream out(stdout);

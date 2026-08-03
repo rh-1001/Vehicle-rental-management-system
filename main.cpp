@@ -1,19 +1,85 @@
 #include <QCoreApplication>
+#include <QTextStream>
+#include "vehiclemanager.h"
+
+//Input and output streams
+
+QTextStream in(stdin);
+QTextStream out(stdout);
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    // Set up code that uses the Qt event loop here.
-    // Call QCoreApplication::quit() or QCoreApplication::exit() to quit the application.
-    // A not very useful example would be including
-    // #include <QTimer>
-    // near the top of the file and calling
-    // QTimer::singleShot(5000, &a, &QCoreApplication::quit);
-    // which quits the application after 5 seconds.
+    VehicleManager manager;
 
-    // If you do not need a running Qt event loop, remove the call
-    // to QCoreApplication::exec() or use the Non-Qt Plain C++ Application template.
+    int choice;
 
-    return QCoreApplication::exec();
-}
+    do{
+        out << "\n========== Vehicle Rental Management System ==========\n";
+        out << "1. Add Vehicle\n";
+        out << "2. Remove Vehicle\n";
+        out << "3. Search Vehicle\n";
+        out << "4. Rent Vehicle\n";
+        out << "5. Return Vehicle\n";
+        out << "6. Display Vehicle\n";
+        out << "7. Display Summary\n";
+        out << "8. Save To File\n";
+        out << "9. Load From File\n";
+        out << "0. Exit\n";
+
+        out << "Enter choice: ";
+        in >> choice;
+
+        switch(choice)
+        {
+        case 1:
+            manager.addVehicle();
+            break;
+
+        case 2:
+            manager.removeVehicle();
+            break;
+
+        case 3:
+            manager.searchVehicle();
+            break;
+
+        case 4:
+            manager.rentVehicle();
+            break;
+
+        case 5:
+            manager.returnVehicle();
+            break;
+
+        case 6:
+            manager.displayVehicle();
+            break;
+
+        case 7:
+            manager.displaySummary();
+            break;
+
+        case 8:
+            manager.saveToFile();
+            break;
+
+        case 9:
+            manager.loadFromFile();
+            break;
+
+        case 0:
+            out << "Goodbye!\n";
+            break;
+
+        default:
+            out << "Invalid choice!\n";
+            break;
+
+        } while(choice != 0);
+
+        return 0;
+    }
+
+
