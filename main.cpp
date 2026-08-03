@@ -11,6 +11,9 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
+    QTextStream in(stdin);
+    QTextStream out(stdout);
+
     VehicleManager manager;
 
     int choice;
