@@ -15,21 +15,9 @@ int main(int argc, char *argv[])
 
     int choice;
 
-    do{
-        out << "\n========== Vehicle Rental Management System ==========\n";
-        out << "1. Add Vehicle\n";
-        out << "2. Remove Vehicle\n";
-        out << "3. Search Vehicle\n";
-        out << "4. Rent Vehicle\n";
-        out << "5. Return Vehicle\n";
-        out << "6. Display Vehicle\n";
-        out << "7. Display Summary\n";
-        out << "8. Save To File\n";
-        out << "9. Load From File\n";
-        out << "0. Exit\n";
-
-        out << "Enter choice: ";
-        in >> choice;
+    do
+    {
+        // Menu
 
         switch(choice)
         {
@@ -76,10 +64,8 @@ int main(int argc, char *argv[])
         default:
             out << "Invalid choice!\n";
             break;
+        }
 
-        } while(choice != 10);
+    } while(choice != 10);
 
-        return 0;
-    }
-
-
+}
