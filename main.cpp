@@ -2,10 +2,6 @@
 #include <QTextStream>
 #include "vehiclemanager.h"
 
-//Input and output streams
-
-QTextStream in(stdin);
-QTextStream out(stdout);
 
 int main(int argc, char *argv[])
 {
@@ -18,20 +14,22 @@ int main(int argc, char *argv[])
 
     int choice;
 
-    out << "1. Add Vehicle\n";
-    out << "2. Remove Vehicle\n";
-    out << "3. Search Vehicle\n";
-    out << "4. Rent Vehicle\n";
-    out << "5. Return Vehicle\n";
-    out << "6. Display Vehicle\n";
-    out << "7. Display Summary\n";
-    out << "8. Save to File\n";
-    out << "9. Load from File\n";
-    out << "0. Exit\n";
-
     do
     {
-        // Menu
+        out << "\n========== Vehicle Rental Management System ==========\n";
+        out << "1. Add Vehicle\n";
+        out << "2. Remove Vehicle\n";
+        out << "3. Search Vehicle\n";
+        out << "4. Rent Vehicle\n";
+        out << "5. Return Vehicle\n";
+        out << "6. Display Vehicle\n";
+        out << "7. Display Summary\n";
+        out << "8. Save to File\n";
+        out << "9. Load from File\n";
+        out << "0. Exit\n";
+
+        out << "\nEnter your choice: ";
+        in >> choice;
 
         switch(choice)
         {
@@ -71,15 +69,15 @@ int main(int argc, char *argv[])
             manager.loadFromFile();
             break;
 
-        case 10:
-            out << "Exit!\n";
+        case 0:
+            out << "Exiting...\n";
             break;
 
         default:
             out << "Invalid choice!\n";
-            break;
         }
 
-    } while(choice != 10);
+    } while(choice != 0);
 
+    return 0;
 }
