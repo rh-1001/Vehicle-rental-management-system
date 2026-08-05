@@ -27,11 +27,11 @@ void VehicleManager::addVehicle(){
             out.flush();
             in >> vehicleID;
 
-            out << "Enter Vehicle Model C-:\n";
+            out << "Enter Vehicle Model:\n";
             out.flush();
             in >> vehicleModel;
 
-            out << " Enter Vehicle Brand:\n";
+            out << " Enter Vehicle Brand(Use underscores instead of spaces):\n";
             out.flush();
             in >> vehicleBrand;
 
@@ -43,15 +43,15 @@ void VehicleManager::addVehicle(){
 
     }else if( vehicleType =="Motorcycle"){
 
-            out << "Enter Vehicle:\n";
+            out << "Enter Vehicle ID:\n";
             out.flush();
             in >> vehicleID;
 
-            out << "Enter Vehicle Model C-:\n";
+            out << "Enter Vehicle Model:\n";
             out.flush();
             in >> vehicleModel;
 
-            out << " Enter Vehicle Brand:\n";
+            out << " Enter Vehicle Brand(Use underscores instead of spaces):\n";
             out.flush();
             in >> vehicleBrand;
 
@@ -97,7 +97,7 @@ void VehicleManager::removeVehicle(){
         }
         else if (vehicleType == "Motorcycle"){
 
-            out << "Enter ID of vehicle you want to remove C-:\n";
+            out << "Enter ID of vehicle you want to remove:\n";
             out.flush();
             in >> searchID;
 
@@ -418,7 +418,7 @@ void VehicleManager::displayVehicle(){
     //Implementing save to file functionality
     void VehicleManager::saveToFile(){
 
-        QFile file("storage");
+        QFile file("storage.txt");
 
         QTextStream saveFile(&file);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -426,6 +426,12 @@ void VehicleManager::displayVehicle(){
             out << "Could not open file!\n";
             return;
         }
+
+        out << "Cars: " << Cars.size() << "\n";
+        out << "Motorcycles: " << Motorcycles.size() << "\n";
+        out << "Rented Cars: " << RentedCars.size() << "\n";
+        out << "Rented Motorcycles: " << RentedMotorcycles.size() << "\n";
+        out.flush();
 
         for(int i = 0; i < Motorcycles.size(); i++){
 
@@ -454,7 +460,7 @@ void VehicleManager::displayVehicle(){
     //Implementing load file functionality
     void VehicleManager::loadFromFile()
     {
-        QFile file("storage");
+        QFile file("storage.txt");
 
         if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
             out << "Could not open file!\n";
