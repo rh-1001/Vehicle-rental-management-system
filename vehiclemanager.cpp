@@ -3,10 +3,7 @@
 #include "vehiclemanager.h"
 #include "vehicle.h"
 
-
-
-//Input and output streams
-
+// Input and output streams
 QTextStream in(stdin);
 QTextStream out(stdout);
 
@@ -20,21 +17,26 @@ void VehicleManager::addVehicle(){
     double vehiclePrice;
 
     out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    out.flush();
     in >> vehicleType;
 
 
     if (vehicleType == "Car"){
 
             out << "Enter Vehicle ID:\n";
+            out.flush();
             in >> vehicleID;
 
             out << "Enter Vehicle Model C-:\n";
+            out.flush();
             in >> vehicleModel;
 
             out << " Enter Vehicle Brand:\n";
+            out.flush();
             in >> vehicleBrand;
 
             out << "Enter Price Per Day R :\n";
+            out.flush();
             in >> vehiclePrice;
 
             Cars.append(Vehicle(vehicleID,vehicleModel,vehicleBrand, vehiclePrice));
@@ -42,15 +44,19 @@ void VehicleManager::addVehicle(){
     }else if( vehicleType =="Motorcycle"){
 
             out << "Enter Vehicle:\n";
+            out.flush();
             in >> vehicleID;
 
             out << "Enter Vehicle Model C-:\n";
+            out.flush();
             in >> vehicleModel;
 
             out << " Enter Vehicle Brand:\n";
+            out.flush();
             in >> vehicleBrand;
 
             out << "Enter Price Per Day R :\n";
+            out.flush();
             in >> vehiclePrice;
 
         Motorcycles.append(Vehicle(vehicleID,vehicleModel,vehicleBrand, vehiclePrice));
@@ -68,11 +74,13 @@ void VehicleManager::removeVehicle(){
         QString vehicleType, searchID;
 
         out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+        out.flush();
         in >> vehicleType;
 
         if (vehicleType == "Car"){
 
             out << "Enter ID of vehicle you want to remove C-:\n";
+            out.flush();
             in >> searchID;
 
             for(int i =0 ;i < Cars.size(); i++){
@@ -80,14 +88,17 @@ void VehicleManager::removeVehicle(){
                     Cars.remove(i);
 
                     out << "Vehicle removed successfully!";
+                    out.flush();
                     return;
                 }
             }
             out << "No match was found!";
+            out.flush();
         }
         else if (vehicleType == "Motorcycle"){
 
             out << "Enter ID of vehicle you want to remove C-:\n";
+            out.flush();
             in >> searchID;
 
             for(int i = 0; i < Motorcycles.size(); i++){
@@ -96,15 +107,18 @@ void VehicleManager::removeVehicle(){
                     Motorcycles.remove(i);
 
                     out << "Vehicle removed successfully!";
+                    out.flush();
                     return;
                 }
             }
 
             out << "No match was found!";
+            out.flush();
         }
         else{
 
             out << "Invalid vehicle type!";
+            out.flush();
         }}
 
 //Implementation of search vehicle functionality
@@ -113,41 +127,49 @@ void VehicleManager::removeVehicle(){
         QString vehicleType, searchID;
 
         out << "Enter Vehicle type: ('Car' or 'Motorcycle'): \n";
+        out.flush();
         in >> vehicleType;
 
         if (vehicleType == "Car"){
 
             out << "Enter Vehicle ID:\n";
+            out.flush();
             in >> searchID;
 
             for(int i = 0; i < Cars.size(); i++){
                 if(searchID == Cars[i].getId()){
 
                     out << "Vehicle Found!\n";
+                    out.flush();
                     return;
                 }
             }
 
             out << "Vehicle Not Found!\n";
+            out.flush();
         }
         else if (vehicleType == "Motorcycle"){
 
             out << "Enter Vehicle ID:\n";
+            out.flush();
             in >> searchID;
 
             for(int i = 0; i < Motorcycles.size(); i++){
                 if(searchID == Motorcycles[i].getId()){
 
                     out << "Vehicle Found!\n";
+                    out.flush();
                     return;
                 }
             }
 
             out << "Vehicle Not Found!\n";
+            out.flush();
         }
         else{
 
             out << "Invalid vehicle type!\n";
+            out.flush();
         }
     }
 
@@ -157,11 +179,13 @@ void VehicleManager::rentVehicle(){
     QString vehicleType, searchID;
 
     out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    out.flush();
     in >> vehicleType;
 
     if (vehicleType == "Car"){
 
         out << "Enter Vehicle ID:\n";
+        out.flush();
         in >> searchID;
 
         for(int i =0 ;i < Cars.size(); i++){
@@ -171,6 +195,7 @@ void VehicleManager::rentVehicle(){
                 Cars[i].setIsRented(true);
                 if(Cars[i].getRented()){
                     out <<" Vehicle has been rented!\n";
+                    out.flush();
                 }
 
                 //Adding the rented to the rented vehicle vector
@@ -183,10 +208,12 @@ void VehicleManager::rentVehicle(){
             }
         }
         out << " Vehicle not found!\n";
+        out.flush();
     }
     else if (vehicleType == "Motorcycle"){
 
         out << "Enter Vehicle ID:\n";
+        out.flush();
         in >> searchID;
 
         for(int i =0 ;i < Motorcycles.size(); i++){
@@ -196,6 +223,7 @@ void VehicleManager::rentVehicle(){
                 Motorcycles[i].setIsRented(true);
                 if(Motorcycles[i].getRented()){
                     out <<" Vehicle has been rented!\n";
+                    out.flush();
                 }
 
                 //Adding the rented to the rented vehicle vector
@@ -207,8 +235,10 @@ void VehicleManager::rentVehicle(){
             }
         }
             out << " Vehicle not found!\n";
+            out.flush();
     }
     else{out << "Invalid Input!\n";
+        out.flush();
     }
 }
 //Implementaion of return vehicle functionality
@@ -217,11 +247,13 @@ void VehicleManager::returnVehicle(){
     QString vehicleType, searchID;
 
     out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    out.flush();
     in >> vehicleType;
 
     if (vehicleType == "Car"){
 
         out << "Enter Vehicle ID:\n";
+        out.flush();
         in >> searchID;
 
         for(int i =0 ;i < RentedCars.size(); i++){
@@ -230,6 +262,7 @@ void VehicleManager::returnVehicle(){
                 // Changing rental status of car
                 RentedCars[i].setIsRented(false);
                     out <<" Vehicle has been returned!\n";
+                    out.flush();
 
                 //Adding the rented to the cars vehicle vector
                 Cars.append(RentedCars[i]);
@@ -241,10 +274,12 @@ void VehicleManager::returnVehicle(){
             }
         }
         out << "Vehicle not found!\n";
+        out.flush();
     }
     else if (vehicleType == "Motorcycle"){
 
         out << "Enter Vehicle ID:\n";
+        out.flush();
         in >> searchID;
 
         for(int i =0 ;i < RentedMotorcycles.size(); i++){
@@ -253,6 +288,7 @@ void VehicleManager::returnVehicle(){
                 // Changing rental status of car
                 RentedMotorcycles[i].setIsRented(false);
                 out <<" Vehicle has been returned!\n";
+                out.flush();
 
 
                 //Adding the rented to the rented vehicle vector
@@ -264,8 +300,10 @@ void VehicleManager::returnVehicle(){
             }
         }
         out << "Vehicle not found!\n";
+        out.flush();
     }else{
         out << "Invalid Input!\n";
+        out.flush();
     }
 }
 //Implementation of displayVehicle functionality
@@ -274,55 +312,72 @@ void VehicleManager::displayVehicle(){
     QString vehicleType, searchID;
 
     out << "Enter Vehicle type: ( 'Car'or 'Motorcycle'): \n";
+    out.flush();
     in >> vehicleType;
 
     if (vehicleType == "Car"){
 
         out << "Enter Vehicle ID:\n";
+        out.flush();
         in >> searchID;
 
         for(int i =0 ;i < Cars.size(); i++){
             if(searchID == Cars[i].getId()){
 
                 out << "Vehicle ID: " << Cars[i].getId() << "\n";
+                out.flush();
                 out << "Model: " << Cars[i].getModel() << "\n";
+                out.flush();
                 out << "Brand: " << Cars[i].getBrand() << "\n";
+                out.flush();
                 out << "Price Per Day: R" << Cars[i].getPricePerDay() << "\n";
+                out.flush();
                 if (Cars[i].getRented() == true) {
                     out << "Yes\n";
+                    out.flush();
                 }
                 else if (Cars[i].getRented() == false) {
                     out << "No\n";
+                    out.flush();
                 }
                 return;
                 }
             }  out << "Vehicle not found!\n";
+                out.flush();
 
     } else if (vehicleType == "Motorcycle"){
 
         out << "Enter Vehicle ID:\n";
+        out.flush();
         in >> searchID;
 
         for(int i =0 ;i < Motorcycles.size(); i++){
             if(searchID == Motorcycles[i].getId()){
 
                 out << "Vehicle ID: " << Motorcycles[i].getId() << "\n";
+                out.flush();
                 out << "Model: " << Motorcycles[i].getModel() << "\n";
+                out.flush();
                 out << "Brand: " << Motorcycles[i].getBrand() << "\n";
+                out.flush();
                 out << "Price Per Day: R" << Motorcycles[i].getPricePerDay() << "\n";
+                out.flush();
                 if (Motorcycles[i].getRented() == true) {
                     out << "Yes\n";
                 }
                 else if (Motorcycles[i].getRented() == false) {
                     out << "No\n";
+                    out.flush();
                 }
                 return;
             }
 }
         out << "Vehicle not found!/n";
+        out.flush();
         }
     else{
-        out << "Invalid output!";}
+        out << "Invalid output!";
+        out.flush();}
     }
 
 
@@ -357,6 +412,7 @@ void VehicleManager::displayVehicle(){
             << "\n";
 
         out << "=====================================\n";
+        out.flush();
     }
 
     //Implementing save to file functionality

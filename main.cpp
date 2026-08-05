@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
         out << "0. Exit\n";
 
         out << "\nEnter your choice: ";
+        out.flush();
         in >> choice;
 
         switch(choice)
