@@ -448,6 +448,7 @@ void VehicleManager::displayVehicle(){
         file.close();
 
         out << "Data saved successfully!\n";
+        out.flush();
     }
 
     //Implementing load file functionality
@@ -457,11 +458,11 @@ void VehicleManager::displayVehicle(){
 
         if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
             out << "Could not open file!\n";
+            out.flush();
             return;
         }
 
         QTextStream loadFromFile(&file);
-       ;
 
         QString vehicleType;
         QString vehicleID;
@@ -527,5 +528,6 @@ void VehicleManager::displayVehicle(){
         file.close();
 
         out << "Vehicles loaded successfully!\n";
+        out.flush();
     }
 
