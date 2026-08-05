@@ -418,7 +418,7 @@ void VehicleManager::displayVehicle(){
     //Implementing save to file functionality
     void VehicleManager::saveToFile(){
 
-        QFile file("storage.txt");
+        QFile file("storage");
 
         QTextStream saveFile(&file);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -453,7 +453,7 @@ void VehicleManager::displayVehicle(){
     //Implementing load file functionality
     void VehicleManager::loadFromFile()
     {
-        QFile file("storage.txt");
+        QFile file("storage");
 
         if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
             out << "Could not open file!\n";
@@ -486,7 +486,7 @@ void VehicleManager::displayVehicle(){
             loadFromFile >> vehiclePrice;
             loadFromFile >> isRented;
 
-            if(vehicleType == "Car"){
+            if(vehicleType == "Cars"){
 
                 Vehicle vehicle(vehicleID,
                                 vehicleModel,
@@ -504,7 +504,7 @@ void VehicleManager::displayVehicle(){
                     Cars.append(vehicle);
                 }
             }
-            else if(vehicleType == "Motorcycle"){
+            else if(vehicleType == "Motorcyles"){
 
                 Vehicle vehicle(vehicleID,
                                 vehicleModel,
