@@ -511,7 +511,7 @@ void VehicleManager::displayVehicle(){
                     Cars.append(vehicle);
                 }
             }
-            else if(vehicleType == "Motorcyles"){
+            else if(vehicleType == "Motorcycles"){
 
                 Vehicle vehicle(vehicleID,
                                 vehicleModel,

@@ -37,6 +37,10 @@ public:
     bool getRented();
     void setIsRented(bool Status);
 
+    // Pure virtual functions
+    virtual QString typeName() const  = 0;
+    virtual void displayInfo() const;
+
 };
 
 #endif // VEHICLE_H
