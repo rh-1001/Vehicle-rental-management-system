@@ -39,7 +39,7 @@ public:
 
     // Pure virtual functions
     virtual QString typeName() const  = 0;
-    virtual void displayInfo() const;
+    virtual void displayInfo() const = 0;
 
 };
 

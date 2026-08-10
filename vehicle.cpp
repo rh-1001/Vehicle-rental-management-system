@@ -1,4 +1,5 @@
 #include "vehicle.h"
+#include <qfloat16.h>
 
 //Constructor initializing class
 Vehicle::Vehicle(QString newID,QString newModel,QString newBrand,double newPricePerDay, bool Rented) {
@@ -62,5 +63,14 @@ bool Vehicle::getRented(){
 void Vehicle::setIsRented(bool newStatus){
 
     isRented = newStatus;
+}
 
+// Display function
+void Vehicle::displayInfo() const {
+    QTextStream out(stdout);
+    out << "ID: " << id <<"\n";
+    out << "Brand: " << brand << "\n";
+    out << "Model: " << model << "\n";
+    out << "Price per day: " << pricePerDay << "\n";
+    out << "Rented: " << isRented << "Y or N" << "\n";
 }

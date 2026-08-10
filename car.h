@@ -16,6 +16,9 @@ class Car: public Vehicle
          int getNumberOfDoors();
          void setNumberOfDoors( int newValue);
 
+         QString typeName() const;
+         void displayInfo() const;
+
 };
 
 #endif // CAR_H

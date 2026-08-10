@@ -7,12 +7,16 @@ Motorcycle::Motorcycle(QString newID,QString newModel,QString newBrand,double ne
 }
 
 //Implementation of Setter and Getter functions for Engine Capacity
-int Motorcycle::getEngineCapacityCC(){
 
-    return engineCapacityCC;
+    // Return type name
+    QString Motorcycle::typeName() const {
+        return "Motorcycle";
+
 }
 
-void Motorcycle::setEngineCapacityCC(int newEngineCapacityValue){
-
-    engineCapacityCC =newEngineCapacityValue;
+    // Display info
+    void Motorcycle::displayInfo() const {
+        Vehicle::displayInfo();
+        QTextStream out(stdout);
+        out << "Engine capacity: " << engineCapacityCC << "CC";
 }

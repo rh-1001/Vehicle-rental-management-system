@@ -16,3 +16,17 @@ void Car:: setNumberOfDoors( int newNumberOfDoorsValue){
 
     numberOfDoors = newNumberOfDoorsValue;
 }
+void Car::displayInfo() const
+{
+    Vehicle::displayInfo();
+
+    QTextStream out(stdout);
+    out << "Number of doors: "
+        << numberOfDoors
+        << "\n";
+}
+QString Car::typeName() const
+{
+    return "Car";
+}
+
